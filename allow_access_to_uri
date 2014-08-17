@@ -1,0 +1,8 @@
+when HTTP_REQUEST { 	
+	if { ([string tolower [HTTP::uri]] starts_with "/your_uri") 
+	      &&  !([matchclass [IP::client_addr] equals ip_data_group_list ]) } {
+		log local0.notice "Access to VIP from [IP::client_addr] blocked Uri is [HTTP::uri]"
+		HTTP::respond 403 "block"
+		drop
+	}
+}
