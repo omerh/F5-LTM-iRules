@@ -1,0 +1,8 @@
+when HTTP_REQUEST {
+	if { [class match [string tolower [HTTP::uri]] starts_with your_external_file_list] } {
+		set url [class match -value [string tolower [HTTP::path]] starts_with your_external_file_list]
+		HTTP::respond 301 Location "$url"
+	} else {
+		HTTP::respond 301 Location "http://YourNoMathRedirect.com"	
+	}
+}
