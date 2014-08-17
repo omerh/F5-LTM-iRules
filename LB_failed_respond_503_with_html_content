@@ -1,0 +1,15 @@
+when LB_FAILED {
+	HTTP::respond 503 content {
+	
+	  <!DOCTYPE html> 
+		  <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+        <meta charset="utf-8" />
+        <title></title>
+      </head>
+    <body>
+      Your HTML Content here
+    </body>
+    </html>
+  }
+}
