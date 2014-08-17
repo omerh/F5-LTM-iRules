@@ -1,0 +1,6 @@
+when HTTP_REQUEST {
+	if { [string tolower [HTTP::uri]] starts_with "/OldUriWithNoEndPoint" } {
+		HTTP::respond 200
+		drop
+	}
+}
