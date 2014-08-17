@@ -1,4 +1,3 @@
-```
 when CLIENT_ACCEPTED {
 	if { !([matchclass [IP::client_addr] equals ip_data_group]) } {
 		log local0.emerg "F5 Blocked this fucker [IP::client_addr]"
@@ -6,4 +5,3 @@ when CLIENT_ACCEPTED {
 		drop
   }
 }
-```
