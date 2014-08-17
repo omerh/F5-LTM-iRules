@@ -1,0 +1,7 @@
+when HTTP_REQUEST { 	
+	if { [string tolower [HTTP::uri]] starts_with "/phpmyadmin" } {
+		log local0.alert "Access to main VIP from [IP::client_addr] blocked"
+		HTTP::respond 403 "block"
+		drop
+	}
+}
