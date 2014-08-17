@@ -1,0 +1,5 @@
+when HTTP_REQUEST {
+   if {[string tolower [HTTP::path]] eq "/robots.txt"}{
+      HTTP::respond 200 content "User-agent: *\r\nDisallow: /"
+   }
+}
